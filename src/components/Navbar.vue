@@ -5,7 +5,7 @@
 
                 <router-link to="/" class="brand" @click="closeMenu">
                     <span class="brand-icon">✦</span>
-                    <span class="brand-text">Career<span>Nest</span></span>
+                    <span class="brand-text">Career<span>Bridge</span></span>
                 </router-link>
 
                 <button class="custom-toggler" @click="menuOpen = !menuOpen">

@@ -1,49 +1,105 @@
 <template>
-  <article class="card h-100">
-    <div class="d-flex justify-content-between align-items-start">
+  <article class="job-card">
+    <div class="job-card-top">
       <div class="company-avatar">
-  {{ job.company?.charAt(0)?.toUpperCase() || "C" }}
-</div> 
-      <button class="save-btn" @click="toggleSaved(job)">
-        <i :class="isSaved(job.id) ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'"></i>
+        {{ companyInitial }}
+      </div>
+
+      <button
+        class="save-btn"
+        :class="{ saved: isSaved }"
+        @click="toggleSave"
+      >
+        {{ isSaved ? "★" : "☆" }}
       </button>
     </div>
-    <div class="mt-3">
-      <h3 class="job-title mb-1">{{ job.title }}</h3>
-      <div class="job-company">{{ job.company }}</div>
-      <div class="job-meta mt-2"><i class="bi bi-geo-alt"></i> {{ job.location }}</div>
+
+    <span class="section-label mt-3">Opportunity</span>
+
+    <h5 class="job-title">
+      {{ job.title }}
+    </h5>
+
+    <p class="company-name">
+      {{ job.company_name || job.company || "Company" }}
+    </p>
+
+    <p class="job-info">
+      📍 {{ job.location || "Location not specified" }}
+    </p>
+
+    <div
+      class="job-tags"
+      v-if="job.job_types && job.job_types.length"
+    >
+      <span
+        v-for="type in job.job_types.slice(0, 2)"
+        :key="type"
+      >
+        {{ type }}
+      </span>
     </div>
-    <div class="mt-3">
-      <span class="pill">{{ job.type }}</span>
-      <span v-if="job.remote" class="pill">Remote</span>
-    </div>
-    <div class="d-flex justify-content-between align-items-end mt-4">
-      <div><small class="text-muted d-block">Match</small><strong class="match">{{ job.match }}%</strong></div>
-      <RouterLink :to="`/jobs/${job.slug}`" class="btn btn-sm btn-primary px-3">View Job</RouterLink>
+
+    <div class="job-card-bottom">
+      <router-link
+        :to="'/jobs/' + job.slug"
+        class="details-btn"
+      >
+        View Details →
+      </router-link>
+
+      <span
+        v-if="isSaved"
+        class="text-success small fw-bold"
+      >
+        Saved
+      </span>
     </div>
   </article>
 </template>
-<script setup>
-import { useStore } from "vuex";
 
-defineProps({
-  job: {
-    type: Object,
-    required: true
-  }
-});
+<script>
+export default{
+  name: "JobCard",
 
-const store = useStore();
+  props: {
+    job: {
+      type: Object,
+      required: true
+    }
+  },
 
-const isSaved = (jobId) => {
-  return store.getters.savedJobs.some(job => job.id === jobId);
-};
+  computed: {
+    isSaved() {
+      return this.$store.getters.savedJobs.some(
+        savedJob => savedJob.slug === this.job.slug
+      );
+    },
 
-const toggleSaved = (job) => {
-  if (isSaved(job.id)) {
-    store.commit("removeJob", job.slug);
-  } else {
-    store.commit("saveJob", job);
+    companyInitial() {
+      const name =
+        this.job.company_name ||
+        this.job.company ||
+        "C";
+
+      return name.charAt(0).toUpperCase();
+    }
+  },
+
+  methods: {
+    toggleSave() {
+      if (this.isSaved) {
+        this.$store.commit(
+          "removeJob",
+          this.job.slug
+        );
+      } else {
+        this.$store.commit(
+          "saveJob",
+          this.job
+        );
+      }
+    }
   }
 };
 </script>

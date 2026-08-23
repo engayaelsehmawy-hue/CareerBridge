@@ -6,7 +6,7 @@
 
                 <div class="col-lg-4">
                     <router-link to="/" class="brand text-white">
-                        <span class="brand-icon">✦</span> CareerNest
+                        <span class="brand-icon">✦</span> CareerBridge
                     </router-link>
                     <p class="mt-3">
                         Helping students discover their next opportunity
@@ -31,25 +31,24 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-4">
-                    <h6>Data Source</h6>
+                  <div class="col-lg-4">
+                     <h6>Data Source</h6>
                     <p>Job listings are provided by <strong>Arbeitnow</strong>.</p>
                     <a href="https://www.arbeitnow.com/" target="_blank">Visit Arbeitnow ↗</a>
                 </div>
 
-            </div>
-
-            <div class="footer-bottom">
-                <span>© 2026 CareerNest</span>
-                <span>Made with Vue.js</span>
-            </div>
-
+                </div>
+        <div class="footer-bottom">
+        <span>© 2026 CareerBridge</span>
+        <span>Made with Vue.js</span>
         </div>
-    </footer>
+
+       </div>
+       </footer>
 </template>
 
-<script>
-export default {
+ <script>
+ export default {
     name: "Footer"
-};
-</script>
+  };
+ </script>

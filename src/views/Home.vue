@@ -36,7 +36,7 @@
         <section class="container py-5">
 
             <div class="section-heading text-center">
-                <span class="section-label">Why CareerNest</span>
+                <span class="section-label">Why CareerBridge</span>
                 <h2>Less searching. More discovering.</h2>
             </div>
 
@@ -96,7 +96,7 @@
             </div>
         </section>
 
-        <!-- CTA -->
+       
         <section class="container py-5">
             <div class="hero-visual-box d-flex flex-wrap justify-content-between align-items-center gap-3 text-start">
                 <div>
