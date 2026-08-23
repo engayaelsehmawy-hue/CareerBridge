@@ -165,13 +165,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
-    .custom-toggler { display: block; }
-    .navigation { display: none; width: 100%; }
-    .navigation-open { display: block; }
-    .nav-list { flex-direction: column; align-items: stretch; padding: 15px 0; }
-    .nav-cta { margin: 8px 0 0; text-align: center; }
-}
+    .custom-toggler {
+        display: block;
+    }
 
+    .navigation {
+        display: none;
+        width: 100%;
+    }
+
+    .navigation-open {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 0;
+    }
+
+    .nav-cta {
+        margin: 8px 0 0;
+        text-align: center;
+    }
+}
 
 .site-footer {
     margin-top: 80px;
@@ -452,7 +469,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
 }
 
-
 .job-description {
     color: var(--text);
     overflow-wrap: break-word;
@@ -617,5 +633,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
-    .side-card { position: static; }
+    .side-card {
+        position: static;
+    }
 }

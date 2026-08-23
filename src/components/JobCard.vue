@@ -1,4 +1,3 @@
-```vue
 <template>
   <article class="job-card">
     <div class="job-card-top">
@@ -60,7 +59,7 @@
 </template>
 
 <script>
-export default {
+export default{
   name: "JobCard",
 
   props: {
@@ -104,4 +103,3 @@ export default {
   }
 };
 </script>
-```
