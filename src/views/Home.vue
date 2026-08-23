@@ -1,37 +1,38 @@
 <template>
     <div>
 
-        <!-- Hero -->
-        <section class="hero-section">
-            <div class="container">
-                <div class="row align-items-center g-5">
+<section class="hero-section">
+    <div class="container">
+     <div class="row align-items-center g-5">
 
-                    <div class="col-lg-7">
-                        <span class="section-label">Your next chapter starts here</span>
-                        <h1>Find an opportunity <em>worth chasing.</em></h1>
-                        <p class="text-secondary fs-5">
-                            Discover jobs, internships and remote opportunities
-                            from different companies — all in one calm, simple place.
-                        </p>
+   <div class="col-lg-7">
+    <span class="section-label">Your next chapter starts here</span>
+    
+    <h1>Find an opportunity <em>worth chasing.</em></h1>
+   
+    <p class="text-secondary fs-5">
+        Discover jobs, internships and remote opportunities
+        from different companies — all in one calm, simple place.
+    </p>
 
-                        <router-link to="/jobs" class="btn btn-primary btn-lg mt-3">
-                            Explore Opportunities →
-                        </router-link>
-                    </div>
+        <router-link to="/jobs" class="btn btn-primary btn-lg mt-3">
+            Explore Opportunities →
+        </router-link>
+    </div>
 
-                    <div class="col-lg-5">
-                        <div class="hero-visual-box">
-                            <div class="circle">✦</div>
-                            <p class="mb-1">Your career journey</p>
-                            <h3 class="text-white">starts here.</h3>
-                        </div>
-                    </div>
+    <div class="col-lg-5">
+        <div class="hero-visual-box">
+         <div class="circle">✦</div>
+        
+        <p class="mb-1">Your career journey</p>
+        <h3 class="text-white">starts here.</h3>
+        </div>
+        </div>
 
-                </div>
+        </div>
             </div>
         </section>
 
-        <!-- Why Us -->
         <section class="container py-5">
 
             <div class="section-heading text-center">
@@ -67,7 +68,7 @@
 
         </section>
 
-        <!-- Latest Jobs -->
+       
         <section class="py-5" style="background: var(--beige)">
             <div class="container">
 

@@ -1,7 +1,9 @@
 <template>
   <article class="card h-100">
     <div class="d-flex justify-content-between align-items-start">
-      <CompanyLogo :company="job.company" />
+      <div class="company-avatar">
+  {{ job.company?.charAt(0)?.toUpperCase() || "C" }}
+</div> 
       <button class="save-btn" @click="toggleSaved(job)">
         <i :class="isSaved(job.id) ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'"></i>
       </button>
@@ -21,10 +23,27 @@
     </div>
   </article>
 </template>
-
 <script setup>
-import CompanyLogo from '../components/CompanyLogo.vue'
-import { useStore } from '../myStore'
-defineProps({ job: { type: Object, required: true } })
-const { toggleSaved, isSaved } = useStore()
+import { useStore } from "vuex";
+
+defineProps({
+  job: {
+    type: Object,
+    required: true
+  }
+});
+
+const store = useStore();
+
+const isSaved = (jobId) => {
+  return store.getters.savedJobs.some(job => job.id === jobId);
+};
+
+const toggleSaved = (job) => {
+  if (isSaved(job.id)) {
+    store.commit("removeJob", job.slug);
+  } else {
+    store.commit("saveJob", job);
+  }
+};
 </script>
